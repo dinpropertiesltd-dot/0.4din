@@ -84,8 +84,9 @@ export async function* streamChatResponse(message: string, role: string, context
   try {
     const result = await chat.sendMessageStream({ message });
     for await (const chunk of result) {
-      // Use bracket notation to safely access text property without TS-only 'as' keyword
-      yield chunk['text'];
+      // Use cast to any to safely access the .text property of GenerateContentResponse
+      const c = chunk as any;
+      yield c.text;
     }
   } catch (error) {
     console.error("Streaming Error:", error);
