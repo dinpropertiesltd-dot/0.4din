@@ -35,7 +35,7 @@ const AIChatAssistant: React.FC<Props> = ({ currentUser, userFiles, allFiles = [
 
   // Initialize Speech Recognition
   useEffect(() => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognition = window['SpeechRecognition'] || window['webkitSpeechRecognition'];
     if (SpeechRecognition) {
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;

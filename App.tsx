@@ -100,7 +100,7 @@ const App: React.FC = () => {
       email: supabaseUser.email || '',
       cnic: profile?.cnic || supabaseUser.user_metadata?.cnic || 'PENDING',
       phone: profile?.phone || supabaseUser.user_metadata?.phone || '',
-      role: (profile?.role || supabaseUser.user_metadata?.role || 'CLIENT') as any,
+      role: profile?.role || supabaseUser.user_metadata?.role || 'CLIENT',
       status: 'Active'
     };
     setUser(loggedInUser);

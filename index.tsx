@@ -3,9 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-// Polyfill process.env for browser environments on static hosts
-if (typeof (window as any).process === 'undefined') {
-  (window as any).process = { env: {} };
+// Polyfill process.env for browser environments using JS-compatible bracket notation
+if (typeof window['process'] === 'undefined') {
+  window['process'] = { env: {} };
 }
 
 const rootElement = document.getElementById('root');

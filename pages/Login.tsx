@@ -101,7 +101,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           email: data.user.email || targetEmail,
           cnic: profile?.cnic || regCnic || 'VERIFIED',
           phone: profile?.phone || regPhone || '',
-          role: (profile?.role as any) || 'CLIENT',
+          role: profile?.role || 'CLIENT',
           status: 'Active'
         };
         onLogin(finalUser);
